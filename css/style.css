@@ -1,0 +1,235 @@
+@font-face {
+	font-family: 'next_art';
+	src: url('../fonts/NEXT ART_Regular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'next_art';
+	src: url('../fonts/NEXT ART_Bold.otf') format('opentype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'next_art';
+	src: url('../fonts/NEXT ART_Light.otf') format('opentype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'next_art';
+	src: url('../fonts/NEXT ART_SemiBold.otf') format('opentype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'next_art';
+	src: url('../fonts/NEXT ART_Heavy.otf') format('opentype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+/* Применение шрифта ко всему документу */
+body {
+	box-sizing: border-box;
+}
+* {
+	font-family: monospace;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 85%;
+	margin: 0 auto;
+}
+
+/* header */
+header {
+	width: 100%;
+	height: 100vh;
+	background: url(../images/header_bg.jpeg) center / cover no-repeat;
+	padding-bottom: 50px;
+}
+.header_container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 100%;
+	justify-content: space-between;
+}
+.header_container nav {
+	display: flex;
+	align-items: center;
+	padding: 20px 0;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.header_container nav ul {
+	display: flex;
+	gap: 20px;
+}
+.header_container nav ul li {
+	display: flex;
+	align-items: center;
+	color: white;
+}
+.header_container nav ul a {
+	color: white;
+}
+.header_container nav button {
+	padding: 15px 30px;
+	background-color: #1a3e3e;
+	color: white;
+	margin-left: 40px;
+}
+h1 {
+	font-size: 50px;
+	font-family: 'next_art';
+	color: white;
+	margin: 20px 0;
+}
+/* form */
+header .form form {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #ffffff33;
+	border-radius: 5px;
+	padding: 30px;
+	justify-content: space-between;
+	gap: 20px;
+}
+header .form form div {
+	flex: 1 calc(25% - 20px);
+}
+header .form form select {
+	width: 100%;
+	padding: 10.5px;
+	border: 1px solid white;
+	border-radius: 5px;
+	background: none;
+	color: white;
+	font-size: 20px;
+}
+header .form form input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid white;
+	border-radius: 5px;
+	background: none;
+	color: white;
+	font-size: 20px;
+}
+header .form form p {
+	color: white;
+	margin-top: 10px;
+}
+header .form form .find {
+	display: flex;
+	align-items: flex-start;
+}
+header .form form a {
+	padding: 17px 0;
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+/* explore */
+.explore .container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 50px 0;
+	height: 800px;
+}
+.explore .images {
+	position: relative;
+	width: 480px;
+}
+.explore .images .mountain {
+	width: 350px;
+	height: 400px;
+	background: url(../images/mountain.jpeg) center / cover no-repeat;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 10px;
+}
+.explore .images .house {
+	width: 350px;
+	height: 400px;
+	background: url(../images/house.jpeg) center / cover no-repeat;
+	z-index: 2;
+	position: absolute;
+	bottom: 150px;
+	right: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+}
+.explore .images .house button {
+	background: none;
+}
+.explore .texts {
+	flex: 1 calc(50%);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 20px;
+}
+.explore .texts h4 {
+	font-size: 24px;
+	color: #f2be22;
+	font-weight: 400;
+}
+.explore .texts h3 {
+	font-size: 32px;
+	font-weight: 800;
+}
+.explore .texts p {
+	font-size: 18px;
+	color: #18121e;
+	font-weight: 400;
+	line-height: 27px;
+	margin: 20px 0;
+}
+.explore .texts a {
+	background-color: #1a3e3e;
+	padding: 16px 36px;
+	color: white;
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 1.2px;
+	border-radius: 5px;
+}
+/* media */
+@media screen and (max-width: 750px) {
+	.header_container nav ul {
+		display: none;
+	}
+	h1 {
+		font-size: 28px;
+	}
+	.explore .images .mountain {
+		display: none;
+	}
+	.explore .images .house {
+		position: static;
+		width: 100%;
+		margin-bottom: 40px;
+	}
+	header .form form {
+		display: none;
+		height: 600px;
+	}
+}
