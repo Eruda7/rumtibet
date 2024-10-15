@@ -1,44 +1,12 @@
-@font-face {
-	font-family: 'next_art';
-	src: url('../fonts/NEXT ART_Regular.otf') format('opentype');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'next_art';
-	src: url('../fonts/NEXT ART_Bold.otf') format('opentype');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'next_art';
-	src: url('../fonts/NEXT ART_Light.otf') format('opentype');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'next_art';
-	src: url('../fonts/NEXT ART_SemiBold.otf') format('opentype');
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'next_art';
-	src: url('../fonts/NEXT ART_Heavy.otf') format('opentype');
-	font-weight: 800;
-	font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 /* Применение шрифта ко всему документу */
 body {
 	box-sizing: border-box;
 }
 * {
-	font-family: monospace;
+	font-family: 'Nunito Sans', sans-serif;
+
 	box-sizing: border-box;
 }
 
@@ -46,7 +14,25 @@ body {
 	max-width: 85%;
 	margin: 0 auto;
 }
-
+/* basic styles */
+.basic_h2 {
+	font-size: 32px;
+	font-weight: 800;
+}
+.basic_h3 {
+	font-size: 24px;
+	color: #f2be22;
+	font-weight: 400;
+}
+.basic_btn {
+	background-color: #1a3e3e;
+	padding: 16px 36px;
+	color: white;
+	font-weight: 600;
+	font-size: 16px;
+	letter-spacing: 1.2px;
+	border-radius: 5px;
+}
 /* header */
 header {
 	width: 100%;
@@ -88,7 +74,6 @@ header {
 }
 h1 {
 	font-size: 50px;
-	font-family: 'next_art';
 	color: white;
 	margin: 20px 0;
 }
@@ -127,11 +112,14 @@ header .form form p {
 	color: white;
 	margin-top: 10px;
 }
-header .form form .find {
+header .find {
 	display: flex;
 	align-items: flex-start;
 }
-header .form form a {
+header .mobile_find {
+	display: none;
+}
+header .find a {
 	padding: 17px 0;
 	display: block;
 	width: 100%;
@@ -142,6 +130,7 @@ header .form form a {
 }
 
 /* explore */
+
 .explore .container {
 	display: flex;
 	justify-content: space-between;
@@ -187,15 +176,7 @@ header .form form a {
 	justify-content: center;
 	gap: 20px;
 }
-.explore .texts h4 {
-	font-size: 24px;
-	color: #f2be22;
-	font-weight: 400;
-}
-.explore .texts h3 {
-	font-size: 32px;
-	font-weight: 800;
-}
+
 .explore .texts p {
 	font-size: 18px;
 	color: #18121e;
@@ -212,13 +193,331 @@ header .form form a {
 	letter-spacing: 1.2px;
 	border-radius: 5px;
 }
+
+/* program */
+.program {
+	padding: 80px 0;
+	background-color: #f3f5f4;
+}
+.program .container {
+	display: flex;
+	gap: 50px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.program .texts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+	flex: 1 calc(50% - 30px);
+}
+.program .texts .info {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.program .texts .info .block {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	align-items: center;
+}
+.program .texts .info .block .text {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.program .texts .info .block h3 {
+	font-weight: 700;
+	font-size: 18px;
+	color: rgb(24, 18, 30);
+}
+.program .images {
+	flex: 1 1 calc(50% - 30px);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: flex-end;
+}
+
+/* popular */
+.popular {
+	padding: 80px 0;
+}
+.popular h3 {
+	text-align: center;
+}
+.popular h2 {
+	text-align: center;
+}
+
+.popular .blocks {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin-bottom: 40px;
+}
+.popular .block {
+	min-height: 500px;
+	min-width: 380px;
+	border-radius: 30px;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	flex: 1 calc(33.3% - 20px);
+}
+.popular .star {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: 0;
+	top: 50px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	background-color: #fdfdfd;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+}
+.popular .sub_block {
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(6px);
+	position: absolute;
+	border-radius: 30px;
+	top: 80%;
+	transition: 3s;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding-bottom: 30px;
+}
+.popular .sub_block .title {
+	width: 100%;
+	display: flex;
+	padding: 30px;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+.popular .sub_block .title h4 {
+	font-size: 24px;
+	color: white;
+	font-weight: 700;
+}
+.popular .sub_block .title p {
+	color: white;
+	font-size: 12px;
+}
+.popular .sub_block .title .price {
+	padding: 10px 20px;
+	font-weight: 700;
+	font-size: 20px;
+	color: #fdfdfd;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 5px;
+}
+.popular .sub_block .info {
+	color: white;
+	font-size: 16px;
+	line-height: 150%;
+	font-weight: 400;
+	padding: 30px;
+	padding-top: 10px;
+}
+.popular .sub_block a {
+	margin-left: 30px;
+}
+.popular .block1 {
+	background: url(../images/river_bg.png) center / cover no-repeat;
+}
+.popular .block2 {
+	background: url(../images/space_bg.png) center / cover no-repeat;
+}
+.popular .block3 {
+	background: url(../images/mountain_bg.png) center / cover no-repeat;
+}
+.popular .btn {
+	display: flex;
+	justify-content: center;
+}
+
+.popular .block:hover > .sub_block {
+	top: 0;
+}
+
+/* blog */
+.blog {
+	background-color: #f3f5f4;
+	padding: 90px 0;
+}
+.blog .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.blog .blocks {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 20px;
+	margin-bottom: 40px;
+	margin-top: 50px;
+}
+.blog .block {
+	flex: 1 1 calc(50% - 20px);
+	display: flex;
+}
+.blog .block h3 {
+	font-size: 24px;
+	font-weight: 700;
+}
+.blog .block p {
+	font-size: 14px;
+}
+.blog .texts {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	justify-content: space-between;
+}
+.blog .texts .next {
+	display: flex;
+	justify-content: space-between;
+}
+.blog .texts .next p {
+	color: #f2be22;
+}
+.blog .texts .next a {
+	color: black;
+}
+
+/* gallery */
+.gallery {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.gallery .gallery_container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+	padding: 50px 0;
+}
+
+/* footer */
+footer {
+	background-color: #1a3e3e;
+	position: relative;
+	padding: 100px 0;
+	margin-top: 150px;
+}
+.news {
+	position: absolute;
+	background-color: #fff;
+	padding: 50px;
+	width: 85%;
+	top: -120px;
+	box-shadow: 0 0 5px #0000006b;
+	display: flex;
+	gap: 50px;
+	flex-wrap: wrap;
+}
+.news div {
+	flex: 1 1 calc(50% - 50px);
+}
+
+.news form {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	margin: 10px 0;
+	flex-wrap: wrap;
+}
+.news div input {
+	flex: 1 1 calc(50% - 20px);
+}
+.news div .email {
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.33);
+	padding: 10px;
+	color: white;
+	border-radius: 5px;
+}
+.news h6 a {
+	color: black;
+	text-decoration: underline;
+}
+.footer_nav {
+	padding-top: 100px;
+	display: flex;
+	justify-content: space-between;
+	color: white;
+}
+.footer_nav h4 {
+	color: white;
+	font-size: 20px;
+	font-weight: 700s;
+}
+.footer_nav a {
+	color: white;
+	transition: 0.2s;
+}
+.footer_nav a:hover {
+	color: rgb(242, 190, 34);
+}
+.footer_nav .texts {
+	flex: 1 calc(40%);
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.footer_nav .texts p {
+	margin-bottom: 40px;
+	line-height: 20px;
+}
+.footer_nav .texts .contacts {
+	display: flex;
+	justify-content: space-between;
+	text-decoration: underline;
+}
+.footer_nav .texts .social_medias {
+	display: flex;
+	gap: 20px;
+}
+.footer_nav .menu {
+	flex: 1 calc(60%);
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.footer_nav .menu ul {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
 /* media */
 @media screen and (max-width: 750px) {
+	header {
+		height: 600px;
+	}
+
 	.header_container nav ul {
 		display: none;
 	}
 	h1 {
-		font-size: 28px;
+		font-size: 22px;
+	}
+	.explore .container {
+		height: auto;
 	}
 	.explore .images .mountain {
 		display: none;
@@ -231,5 +530,14 @@ header .form form a {
 	header .form form {
 		display: none;
 		height: 600px;
+	}
+	header .mobile_find {
+		display: block;
+	}
+	.footer_nav {
+		display: none;
+	}
+	.gallery {
+		display: none;
 	}
 }
