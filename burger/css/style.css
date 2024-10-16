@@ -1,0 +1,109 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+	color: black;
+	font-family: monospace;
+}
+a {
+	font-size: 20px;
+}
+.menu {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	list-style: none;
+	margin-top: 30px;
+}
+#toggle {
+	/* Прозрачность */
+	opacity: 0;
+}
+
+/* Стилизация кнопки */
+.btn {
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 25px;
+	height: 25px;
+	z-index: 10;
+	user-select: none;
+	border-radius: 6px;
+	background-color: rgba(0, 0, 0, 0.147);
+	backdrop-filter: blur(10px);
+}
+
+.btn span,
+.btn span::before,
+.btn span::after {
+	display: block;
+	position: absolute;
+	height: 2px;
+	background-color: black;
+	width: 100%;
+	transition: 0.3s;
+}
+.btn span::before {
+	content: '';
+	top: 8px;
+}
+.btn span::after {
+	content: '';
+	top: -8px;
+}
+.burger_menu {
+	position: fixed;
+	top: 0;
+	left: -100%;
+	transition: 0.5s;
+	width: 300px;
+	visibility: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 80px 0;
+	align-items: center;
+	background-color: tomato;
+	z-index: 9;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.504);
+}
+.burger_menu .menu__item {
+	display: block;
+}
+
+#toggle:checked ~ .btn span {
+	transform: rotate(45deg);
+}
+#toggle:checked ~ .btn span::before {
+	top: 0;
+	transform: rotate(-90deg);
+}
+#toggle:checked ~ .btn span::after {
+	top: 0;
+	transform: rotate(0deg);
+}
+#toggle:checked ~ .burger_menu {
+	left: 0;
+	visibility: visible;
+}
+
+@media screen and (max-width: 1024px) {
+	.burger_block {
+		display: block;
+	}
+	.menu {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.burger_block {
+		display: none;
+	}
+}

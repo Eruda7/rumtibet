@@ -1,35 +1,79 @@
-.custom-select {
-	appearance: none; /* Убираем стандартный вид */
-	background-color: #073c39; /* Цвет фона */
-	color: white; /* Цвет текста */
-	padding: 10px 15px;
-	font-size: 16px;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+}
+
+.slider {
+	width: 100%;
+	padding: 20px;
+}
+
+.slider-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* Две колонки для десктопа */
+	gap: 20px;
+}
+
+.slide {
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: left;
+	padding: 15px;
+}
+
+.slide img {
+	width: 100%;
+	border-radius: 8px;
+}
+
+.slide h3 {
+	margin: 10px 0;
+	font-size: 18px;
+}
+
+.slide p {
+	color: #555;
+	margin: 10px 0;
+}
+
+.slide .date {
+	color: #ffcc00;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.slide button {
+	background-color: #ffcc00;
 	border: none;
+	padding: 10px 15px;
 	border-radius: 5px;
-	width: 220px; /* Ширина выпадающего списка */
 	cursor: pointer;
-	position: relative;
+	transition: background-color 0.3s;
 }
 
-/* Для стрелочки вниз */
-.custom-select::after {
-	content: '\25BC'; /* Стрелка вниз */
-	font-size: 12px;
-	color: white;
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	transform: translateY(-50%);
+.slide button:hover {
+	background-color: #ffaa00;
 }
 
-/* Стилизация списка опций */
-.custom-select option {
-	background-color: white; /* Цвет фона для опций */
-	color: black; /* Цвет текста для опций */
-}
+/* Адаптация для телефонов */
+@media (max-width: 768px) {
+	.slider-container {
+		display: flex;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		gap: 10px;
+	}
 
-/* Стили при открытии списка в разных браузерах */
-.custom-select:focus {
-	outline: none; /* Убираем стандартный фокус */
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Тень при открытии */
+	.slide {
+		min-width: 90%;
+		flex-shrink: 0;
+		scroll-snap-align: start;
+	}
 }
