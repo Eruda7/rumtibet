@@ -688,6 +688,9 @@ footer {
 		overflow-x: auto;
 		scroll-snap-type: x mandatory;
 		gap: 10px;
+
+		flex-wrap: nowrap;
+		max-width: 100%;
 	}
 
 	.slide {
@@ -696,10 +699,7 @@ footer {
 		scroll-snap-align: start;
 		justify-content: center;
 	}
-	.blog .blocks {
-		flex-wrap: nowrap;
-		max-width: 300px;
-	}
+
 	.popular .blocks {
 		display: flex;
 		overflow-x: auto;
