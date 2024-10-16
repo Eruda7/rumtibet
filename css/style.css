@@ -129,6 +129,80 @@ header .find a {
 	border-radius: 5px;
 }
 
+/* burger */
+#toggle {
+	opacity: 0;
+	position: fixed;
+}
+header nav .btn {
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 25px;
+	height: 25px;
+	z-index: 10;
+	user-select: none;
+	border-radius: 6px;
+	background-color: #0000002b;
+	backdrop-filter: blur(10px);
+}
+header nav .btn span,
+header nav .btn span::before,
+header nav .btn span::after {
+	display: block;
+	position: absolute;
+	height: 3px;
+	background-color: rgb(255, 255, 255);
+	width: 100%;
+	transition: 0.3s;
+}
+header nav .btn span::before {
+	content: '';
+	top: 8px;
+	width: 60%;
+	right: 0;
+}
+header nav .btn span::after {
+	content: '';
+	top: -8px;
+}
+
+header nav .burger_menu {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	transition: 0.5s;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	padding: 40px 0;
+	background-color: #1a3e3e;
+	z-index: 9;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+header nav .burger_menu .menu__item {
+	display: block;
+}
+#toggle:checked ~ .btn span {
+	transform: rotate(45deg);
+	width: 100%;
+}
+#toggle:checked ~ .btn span::before {
+	top: 0;
+	transform: rotate(-90deg);
+	width: 100%;
+}
+#toggle:checked ~ .btn span::after {
+	top: 0;
+	transform: rotate(0deg);
+	width: 100%;
+}
+#toggle:checked ~ .burger_menu {
+	right: 0;
+	visibility: visible;
+}
 /* explore */
 
 .explore .container {
@@ -446,6 +520,7 @@ footer {
 }
 .news div input {
 	flex: 1 1 calc(50% - 20px);
+	font-size: 11px;
 }
 .news div .email {
 	height: 50px;
@@ -462,6 +537,7 @@ footer {
 	padding-top: 100px;
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
 	color: white;
 }
 .footer_nav h4 {
@@ -506,17 +582,25 @@ footer {
 	flex-direction: column;
 	gap: 15px;
 }
+
 /* media */
+
 @media screen and (max-width: 1024px) {
+	.container {
+		max-width: 90%;
+	}
 	header {
 		height: 600px;
 	}
 
-	.header_container nav ul {
+	.header_container nav .menu_desktop {
 		display: none;
 	}
 	h1 {
 		font-size: 22px;
+	}
+	.basic_h2 {
+		text-align: center;
 	}
 	.explore .container {
 		height: auto;
@@ -533,6 +617,37 @@ footer {
 		display: none;
 		height: 600px;
 	}
+
+	/* burger */
+	.burger_block {
+		display: block;
+	}
+	.menu {
+		display: none;
+	}
+	header nav .burger_menu {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		padding: 50px;
+	}
+	header nav .burger_menu li,
+	header nav .burger_menu li::before,
+	header nav .burger_menu li::after {
+		position: relative;
+	}
+	.header_container nav ul a {
+		font-size: 20px;
+	}
+	/* blog */
+	.blog .block img {
+		width: 100%;
+	}
+	/* news */
+	.news {
+		position: static;
+		width: 100%;
+	}
 	.news div {
 		width: 100%;
 	}
@@ -545,10 +660,23 @@ footer {
 		display: block;
 	}
 	.footer_nav {
-		display: none;
+		gap: 20px;
 	}
 	.gallery {
-		display: none;
+		gap: 20px;
+		padding: 50px 0;
+	}
+	.gallery .gallery_container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+	}
+	.gallery .gallery_container img {
+		scroll-snap-align: start;
+		width: 100%;
 	}
 	.program .images {
 		display: none;
@@ -570,7 +698,7 @@ footer {
 	}
 	.blog .blocks {
 		flex-wrap: nowrap;
-		width: 100%;
+		max-width: 300px;
 	}
 	.popular .blocks {
 		display: flex;
@@ -578,8 +706,46 @@ footer {
 		scroll-snap-type: x mandatory;
 		gap: 10px;
 		flex-wrap: nowrap;
+		padding: 10px;
+	}
+	.popular .sub_block .title {
+		padding: 30px 10px;
+		font-size: 16px;
+	}
+	.popular .sub_block .title h4 {
+		font-size: 20px;
+	}
+	.popular .sub_block .title .info {
+		display: none;
+	}
+	.popular .sub_block .title .text p {
+		display: none;
 	}
 	.program .texts {
 		align-items: center;
+	}
+	/* footer */
+	footer {
+		margin: 0;
+	}
+	footer .container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.footer_nav .menu {
+		justify-content: flex-start;
+		gap: 30px;
+	}
+	.basic_btn {
+		font-size: 11px;
+	}
+}
+
+/* media min-width */
+
+@media screen and (min-width: 1024px) {
+	header nav .burger_block {
+		display: none;
 	}
 }
