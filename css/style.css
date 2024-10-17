@@ -363,7 +363,7 @@ header nav .burger_menu .menu__item {
 	position: absolute;
 	border-radius: 30px;
 	top: 80%;
-	transition: 3s;
+	transition: 1s;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -677,6 +677,8 @@ footer {
 	.gallery .gallery_container img {
 		scroll-snap-align: start;
 		width: 100%;
+		object-fit: cover;
+		border-radius: 10px;
 	}
 	.program .images {
 		display: none;
